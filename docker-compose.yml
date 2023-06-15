@@ -1,0 +1,45 @@
+version: "3.8"
+services:
+    postgres:
+        image: postgres:14.6
+        restart: unless-stopped
+        environment:
+            POSTGRES_USER: "user"
+            POSTGRES_PASSWORD: "pass"
+            POSTGRES_DB: "data"
+        logging:
+          options:
+            max-size: 10m
+            max-file: "3"
+        ports:
+          - 5432:5432
+        volumes:
+          - ./postgres-data:/var/lib/postgresql/data
+    kratos-migrate:
+        depends_on:
+            - postgres
+        image: oryd/kratos:v0.13.0
+        restart: on-failure
+        environment:
+            DSN: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}?sslmode=disable
+        command:
+            migrate -c kratos-production.yml sql -e --yes
+    kratos:
+        depends_on:
+            - kratos-migrate
+        image: oryd/kratos:v0.13.0
+        restart: unless-stopped
+        command: serve -c kratos-production.yml --dev --watch-courier
+        ports:
+            - 4433:4433
+            - 4434:4434
+    kratos-import:
+        depends_on:
+            - kratos
+        image: oryd/kratos:v0.13.0
+        restart: "no"
+        entrypoint: ["/bin/sh","-c"]
+        command: 
+            - |
+              sleep 30
+              kratos import identities admin.json
