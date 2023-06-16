@@ -35,21 +35,20 @@
 
 <svelte:window bind:innerWidth />
 
-<div class="relative min-w-0 flex-1">
-	<pre
-		class="invisible overflow-x-hidden overflow-y-scroll whitespace-pre-wrap break-words p-3"
-		aria-hidden="true"
-		style="min-height: {minHeight}; max-height: {maxHeight}">{(value || " ") + "\n"}</pre>
+<form method="post" action="?/prompt"
+>
+
 
 	<textarea
+		name="content"
 		enterkeyhint="send"
 		tabindex="0"
 		rows="1"
-		class="absolute top-0 m-0 h-full w-full resize-none scroll-p-3 overflow-x-hidden overflow-y-scroll border-0 bg-transparent p-3 outline-none focus:ring-0 focus-visible:ring-0"
-		bind:value
-		bind:this={textareaElement}
-		{disabled}
-		on:keydown={handleKeydown}
-		{placeholder}
+		class=" textarea h-full w-full "
 	/>
-</div>
+	<button type="submit">
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+			<path d="M3.478 2.405a.75.75 0 00-.926.94l2.432 7.905H13.5a.75.75 0 010 1.5H4.984l-2.432 7.905a.75.75 0 00.926.94 60.519 60.519 0 0018.445-8.986.75.75 0 000-1.218A60.517 60.517 0 003.478 2.405z" />
+		  </svg>		  
+	</button>
+</form>
