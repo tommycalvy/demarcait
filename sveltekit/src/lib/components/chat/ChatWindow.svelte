@@ -4,6 +4,7 @@
 	import type { Message } from "$lib/types/Message";
 	import { createEventDispatcher } from "svelte";
     import type { Model } from "$lib/types/Model";
+	
 
     export let messages: Message[] = [];
 	export let loading = false;

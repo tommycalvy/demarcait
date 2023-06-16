@@ -5,12 +5,8 @@
 	import '@skeletonlabs/skeleton/styles/skeleton.css';
 	// Most of your app wide CSS should be put in this file
 	import '../app.postcss';
-	import { AppShell, AppBar, Drawer, drawerStore } from '@skeletonlabs/skeleton';
+	import { AppShell, AppBar, TabGroup, Tab } from '@skeletonlabs/skeleton';
 	import NavMenu from "$lib/components/NavMenu.svelte";
-
-	function drawerOpen(): void {
-		drawerStore.open({});
-	}
 
 </script>
 
@@ -24,10 +20,6 @@
 	<!-- <meta property="og:image" content="{PUBLIC_ORIGIN || $page.url.origin}{base}/thumbnail.png" /> -->
 </svelte:head>
 
-<Drawer width="w-64">
-	<NavMenu />
-</Drawer>
-
 <!-- App Shell -->
 <AppShell regionPage="bg-surface-50-900-token" slotSidebarLeft="bg-surface-100-800-token">
 	<svelte:fragment slot="sidebarLeft">
@@ -40,20 +32,21 @@
 		<!-- App Bar -->
 		<AppBar gridColumns="grid-cols-3" slotDefault="place-self-center" slotTrail="place-content-end" class="md:hidden">
 			<svelte:fragment slot="lead">
-				<button class="btn btn-sm mr-4" on:click={drawerOpen}>
-					<span>
-						<svg viewBox="0 0 100 80" class="fill-token w-4 h-4">
-							<rect width="100" height="20" />
-							<rect y="30" width="100" height="20" />
-							<rect y="60" width="100" height="20" />
-						</svg>
-					</span>
+				<button class="btn btn-sm mr-4">
+					Edit
 				</button>
 			</svelte:fragment>
-			(title)
+			Chats
 			<svelte:fragment slot="trail">(actions)</svelte:fragment>
 		</AppBar>
 	</svelte:fragment>
 	<!-- Page Route Content -->
 	<slot />
+	<svelte:fragment slot="footer">
+		<div class="btn-group variant-filled">
+			<a href="/permissions"><button>Permissions</button></a>
+			<a href="/chats" ><button>Chats</button></a>
+			<a href="/settings"><button>Settings</button></a>
+		</div>
+	</svelte:fragment>
 </AppShell>
