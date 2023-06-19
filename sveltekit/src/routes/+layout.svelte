@@ -20,6 +20,13 @@
 	<!-- <meta property="og:image" content="{PUBLIC_ORIGIN || $page.url.origin}{base}/thumbnail.png" /> -->
 </svelte:head>
 
+
+<!--
+	Desktop has the vertical bar
+	Mobile will have the bottom bar
+		Detect url path with load and if certain paths then don't render bottom bar
+-->
+
 <!-- App Shell -->
 <AppShell regionPage="bg-surface-50-900-token" slotSidebarLeft="bg-surface-100-800-token">
 	<svelte:fragment slot="sidebarLeft">
