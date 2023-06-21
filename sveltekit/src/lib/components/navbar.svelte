@@ -143,10 +143,11 @@
 		justify-content: space-around;
 		align-items: center;
 		height: 5rem;
-		background-color: oklch(87.94% 0.03 49.76 / 24%);
+		background-color: var(--color-surface);
+        border-top: 1px var(--color-gap);
 	}
 	nav a {
-		color: oklch(0% 0 0);
+		color: var(--color-text);
 		width: 2.5rem;
 		height: 2.5rem;
 		padding: 1rem 1rem;
