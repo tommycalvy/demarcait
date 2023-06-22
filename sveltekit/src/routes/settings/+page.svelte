@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { onMount } from "svelte";
     import type { WithTarget } from "$lib/types/event-with-target";
 	import { isTheme } from "$lib/types/theme";
 	import type { PageData } from "./$types";
@@ -7,7 +8,9 @@
 
     let theme = data.theme === 'light' || data.theme === 'dark' ? 'lightOrDark' : 'system';
 
-    let prefersColorScheme;
+    let prefersColorScheme: 'light' | 'dark' = 'light';
+
+    $: disableThemeSelection = theme === 'system';
     
     function setTheme(event: WithTarget<Event, HTMLInputElement>) {
         if (isTheme(event.currentTarget.value)) {
@@ -21,6 +24,17 @@
         }
     }
 
+    onMount(() => {
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            prefersColorScheme = 'dark';
+        } else {
+            prefersColorScheme = 'light';
+        }
+    })
+
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+        prefersColorScheme = event.matches ? "dark" : "light";
+    });
 </script>
 
 <h1>Settings</h1>
@@ -32,7 +46,7 @@
 </select>
 <div class="theme-display">
     <div class="theme-mode">
-        <input id="light-theme" type="radio" name="theme-mode" value="light" on:change={setTheme}/>
+        <input id="light-theme" type="radio" name="theme-mode" value="light" on:change={setTheme} disabled={disableThemeSelection} />
         <label for="light-theme">
             <span>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -44,7 +58,7 @@
     </div>
     
     <div class="theme-mode">
-        <input id="dark-theme" type="radio" name="theme-mode" value="dark" on:change={setTheme}/>
+        <input id="dark-theme" type="radio" name="theme-mode" value="dark" on:change={setTheme} disabled={disableThemeSelection} />
         <label for="dark-theme" >
             <span>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
