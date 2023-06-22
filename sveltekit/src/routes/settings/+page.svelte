@@ -1,25 +1,34 @@
 <script lang="ts">
     import type { WithTarget } from "$lib/types/event-with-target";
 	import { isTheme } from "$lib/types/theme";
-    let selected: number;
+	import type { PageData } from "./$types";
 
+    export let data: PageData;
+
+    let theme = data.theme === 'light' || data.theme === 'dark' ? 'lightOrDark' : 'system';
+
+    let prefersColorScheme;
+    
     function setTheme(event: WithTarget<Event, HTMLInputElement>) {
         if (isTheme(event.currentTarget.value)) {
             document.documentElement.className = event.currentTarget.value;
+            if (event.currentTarget.value === 'system') {
+                theme = 'system';
+            } else {
+                theme = 'lightOrDark';
+            }
+            document.cookie = `theme=${event.currentTarget.value};max-age=31536000;path="/";samesite=strict;secure`;
         }
     }
+
 </script>
 
 <h1>Settings</h1>
 
-<!--
-    TODO: Create Settings for device theme
--->
-
 <h3>Theme Preferences</h3>
-<select bind:value={selected}>
-    <option value="0">Single theme</option>
-    <option value="1">Sync with system</option>
+<select bind:value={theme}>
+    <option value="lightOrDark">Single theme</option>
+    <option value="system">Sync with system</option>
 </select>
 <div class="theme-display">
     <div class="theme-mode">
@@ -88,6 +97,9 @@
     }
     input:checked + label {
         border-color: var(--color-primary);
+    }
+    @media (prefers-color-scheme: dark) {
+        
     }
     select {
 
