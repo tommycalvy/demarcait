@@ -1,14 +1,13 @@
 // See https://kit.svelte.dev/docs/types#app
 
-import type { Theme, ColorMode } from "$lib/types/theme";
+import type { ColorScheme } from "$lib/types/theme";
 
 // for information about these interfaces
 declare global {
 	namespace App {
 		// interface Error {}
 		interface Locals {
-			theme: Theme,
-			colorMode: ColorMode,
+			colorScheme: ColorScheme
 		}
 		// interface PageData {}
 		// interface Platform {}

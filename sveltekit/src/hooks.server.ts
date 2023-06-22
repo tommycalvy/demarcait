@@ -1,5 +1,5 @@
 import type { Handle } from '@sveltejs/kit';
-import { isColorMode, isTheme } from '$lib/types/theme';
+import { isColorMode, isTheme, type ColorScheme, type Theme } from '$lib/types/theme';
 
 export const handle = (async ({ event, resolve }) => {
 
@@ -12,20 +12,28 @@ export const handle = (async ({ event, resolve }) => {
     const selectedColor = event.cookies.get('selected_color');
     const preferredColor = event.cookies.get('preferred_color');
 
+    const colorScheme: ColorScheme = {
+        colorMode: "system",
+        selectedColor: "light",
+        preferredColor: "light",
+    };
     if (colorMode !== undefined && isColorMode(colorMode)) {
-        if (colorMode === 'select') {
-            
-        }
+        colorScheme.colorMode = colorMode;
     }
-
-    if (theme !== undefined && isTheme(theme)) {
-        if (theme !== 'system') {
-            const response = await resolve(event, {
-                transformPageChunk: ({ html }) => html.replace('class="system"', `class="${theme}"`)
-            });
-            return response;
-        }
+    if (selectedColor !== undefined && isTheme(selectedColor)) {
+        colorScheme.selectedColor = selectedColor;
     }
+    if (preferredColor !== undefined && isTheme(preferredColor)) {
+        colorScheme.preferredColor = preferredColor;
+    }
+    event.locals.colorScheme = colorScheme;
+    if (colorScheme.colorMode === 'select') {
+        const response = await resolve(event, {
+            transformPageChunk: ({ html }) => html.replace('class="system"', `class="${colorScheme.selectedColor}"`)
+        });
+        return response;
+    }
+    
 	const response = await resolve(event);
     return response;
 }) satisfies Handle;

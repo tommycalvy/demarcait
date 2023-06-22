@@ -142,14 +142,14 @@
 		display: flex;
 		justify-content: space-around;
 		align-items: center;
-		height: 5rem;
+		height: 4rem;
 		background-color: var(--color-surface);
         border-top: 1px var(--color-gap);
 	}
 	nav a {
 		color: var(--color-text);
-		width: 2.5rem;
-		height: 2.5rem;
+		width: 2.2rem;
+		height: 2.2rem;
 		padding: 1rem 1rem;
 	}
 </style>

@@ -1,3 +1,7 @@
+@define-mixin component-sizes {
+    --switch-width: 4rem;
+}
+
 @define-mixin colors-light {
     --color-primary: oklch(47.4% 0.076 28.59);
     --color-surface: oklch(100% 0 0);
@@ -16,17 +20,22 @@
 
 :root {
     @mixin colors-light;
+    @mixin component-sizes;
 }
 
 @media (prefers-color-scheme: dark) {
    :root:not(.light) {
         @mixin colors-dark;
+        @mixin component-sizes;
    }
 }
 
 :root.dark {
    @mixin colors-dark;
+   @mixin component-sizes;
 }
+
+
 
 
 
