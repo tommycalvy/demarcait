@@ -1,8 +1,23 @@
 import type { Handle } from '@sveltejs/kit';
-import { isTheme } from '$lib/types/theme';
+import { isColorMode, isTheme } from '$lib/types/theme';
 
 export const handle = (async ({ event, resolve }) => {
-    const theme = event.cookies.get('theme');
+
+    // Cookies:
+    //     color_mode: select | system
+    //     selected_color: light | dark
+    //     preferred_color: light | dark
+
+    const colorMode = event.cookies.get('color_mode');
+    const selectedColor = event.cookies.get('selected_color');
+    const preferredColor = event.cookies.get('preferred_color');
+
+    if (colorMode !== undefined && isColorMode(colorMode)) {
+        if (colorMode === 'select') {
+            
+        }
+    }
+
     if (theme !== undefined && isTheme(theme)) {
         if (theme !== 'system') {
             const response = await resolve(event, {

@@ -1,6 +1,13 @@
-const allThemes = ['light', 'dark', 'system'] as const;
-export type Theme = (typeof allThemes)[number];
+const Themes = ['light', 'dark'] as const;
+export type Theme = (typeof Themes)[number];
 
 export function isTheme(value: string): value is Theme {
-	return allThemes.includes(value as Theme);
+	return Themes.includes(value as Theme);
+}
+
+const ColorModes = ['select', 'system'] as const;
+export type ColorMode = (typeof ColorModes)[number];
+
+export function isColorMode(value: string): value is ColorMode {
+	return ColorModes.includes(value as ColorMode);
 }

@@ -6,11 +6,30 @@
 
     export let data: PageData;
 
+    // On load: light, dark, or system
+    // If light or dark set select to 'Single Theme'
+    //     and set radio group to light or dark theme
+    // If system then set select to 'Sync with system'
+    //     and make radio group set to the 
+    // Cookies:
+    //     color_mode: select | system
+    //     selected_color: light | dark
+    //     prefered_color: light | dark
+
+
     let theme = data.theme === 'light' || data.theme === 'dark' ? 'lightOrDark' : 'system';
 
     let prefersColorScheme: 'light' | 'dark' = 'light';
 
+    let themeSelected = theme === 'system' ? prefersColorScheme : data.theme;
+
     $: disableThemeSelection = theme === 'system';
+
+
+
+    function syncOrSet(event: WithTarget<Event, HTMLSelectElement>) {
+
+    }
     
     function setTheme(event: WithTarget<Event, HTMLInputElement>) {
         if (isTheme(event.currentTarget.value)) {
@@ -20,7 +39,7 @@
             } else {
                 theme = 'lightOrDark';
             }
-            document.cookie = `theme=${event.currentTarget.value};max-age=31536000;path="/";samesite=strict;secure`;
+            document.cookie = `theme=${event.currentTarget.value};path="/";samesite=lax;secure`;
         }
     }
 
@@ -30,11 +49,12 @@
         } else {
             prefersColorScheme = 'light';
         }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            prefersColorScheme = event.matches ? "dark" : "light";
+        });
     })
 
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-        prefersColorScheme = event.matches ? "dark" : "light";
-    });
+    
 </script>
 
 <h1>Settings</h1>
@@ -46,7 +66,7 @@
 </select>
 <div class="theme-display">
     <div class="theme-mode">
-        <input id="light-theme" type="radio" name="theme-mode" value="light" on:change={setTheme} disabled={disableThemeSelection} />
+        <input id="light-theme" type="radio" name="theme-mode" value="light" on:change={setTheme} disabled={disableThemeSelection} bind:group={themeSelected} />
         <label for="light-theme">
             <span>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -58,7 +78,7 @@
     </div>
     
     <div class="theme-mode">
-        <input id="dark-theme" type="radio" name="theme-mode" value="dark" on:change={setTheme} disabled={disableThemeSelection} />
+        <input id="dark-theme" type="radio" name="theme-mode" value="dark" on:change={setTheme} disabled={disableThemeSelection} bind:group={themeSelected} />
         <label for="dark-theme" >
             <span>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
