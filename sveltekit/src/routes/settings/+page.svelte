@@ -129,10 +129,11 @@
         --slide-toggle-margin: calc(var(--slide-toggle-width) / 10);
         width: var(--slide-toggle-diameter);
         height: var(--slide-toggle-diameter);
-        right: 0;
+        right: calc(50% + 0.1em);
         border-radius: 50%;
         background-color: oklch(0% 0 0);
-        transition: 0.18s;
+        --transDur: 0.30s;
+        transition: var(--transDur);
     }
     input:checked {
         background-color: grey;
