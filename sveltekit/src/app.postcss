@@ -1,5 +1,9 @@
+@define-mixin global-css {
+    font-family: system-ui, sans-serif
+}
+
 @define-mixin component-sizes {
-    --switch-width: 4rem;
+    --slide-toggle-width: 4rem;
 }
 
 @define-mixin colors-light {
@@ -21,18 +25,21 @@
 :root {
     @mixin colors-light;
     @mixin component-sizes;
+    @mixin global-css;
 }
 
 @media (prefers-color-scheme: dark) {
    :root:not(.light) {
         @mixin colors-dark;
         @mixin component-sizes;
+        @mixin global-css;
    }
 }
 
 :root.dark {
    @mixin colors-dark;
    @mixin component-sizes;
+   @mixin global-css;
 }
 
 
