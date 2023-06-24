@@ -64,7 +64,7 @@
 </script>
 
 <h1>Settings</h1>
-<SlideToggle />
+
 <h3>Theme Preferences</h3>
 <div class="theme-preference">
     <select bind:value={colorScheme.colorMode}>
@@ -112,7 +112,7 @@
         height: var(--slide-toggle-width-half);
         appearance: none;
         border-radius: var(--slide-toggle-width-half);
-        background-color: var(--color-primary);
+        background-color: oklch(85.74% 0.143 92.65);
         transition: 0.18s;
     }
     .light-span {
@@ -129,91 +129,92 @@
         --slide-toggle-margin: calc(var(--slide-toggle-width) / 10);
         width: var(--slide-toggle-diameter);
         height: var(--slide-toggle-diameter);
-        right: calc(50% + 0.1em);
+        right: calc(50% + 0.1rem);
         border-radius: 50%;
-        background-color: oklch(0% 0 0);
+        background-color: oklch(71.03% 0.153 74.65);
         --transDur: 0.30s;
         transition: var(--transDur);
     }
     input:checked {
-        background-color: grey;
+        background-color: oklch(29.85% 0.072 240.88);
     }
     input:checked + .slider {
         transform: translateX(var(--slide-toggle-width-half));
+        background-color: oklch(62.21% 0.16 240.88);
     }
     .icon-part {
         position: absolute;
         border-radius: 50%;
-        box-shadow: 0.4em -0.4em 0 0.5em hsl(0, 0%, 100%) inset;
-        top: calc(50% - 0.5em);
-        left: calc(50% - 0.5em);
-        width: 1em;
-        height: 1em;
+        box-shadow: 0.4rem -0.4rem 0 0.5rem hsl(0, 0%, 100%) inset;
+        top: calc(50% - 0.4rem);
+        left: calc(50% - 0.4rem);
+        width: 0.8rem;
+        height: 0.8rem;
         transition: box-shadow var(--transDur) ease-in-out,
             opacity var(--transDur) ease-in-out, transform var(--transDur) ease-in-out;
         transform: scale(0.5);
     }
     .icon-part ~ .icon-part {
         background-color: hsl(0, 0%, 100%);
-        border-radius: 0.05em;
+        border-radius: 0.05rem;
         box-shadow: none;
         top: 50%;
-        left: calc(50% - 0.05em);
-        transform: rotate(0) translateY(0.5em);
+        left: calc(50% - 0.05rem);
+        transform: rotate(0) translateY(0.4rem);
         transform-origin: 50% 0;
-        width: 0.1em;
-        height: 0.2em;
+        width: 0.1rem;
+        height: 0.2rem;
     }
     .icon-part:nth-child(3) {
-        transform: rotate(45deg) translateY(0.5em);
+        transform: rotate(45deg) translateY(0.4rem);
     }
     .icon-part:nth-child(4) {
-        transform: rotate(90deg) translateY(0.5em);
+        transform: rotate(90deg) translateY(0.4rem);
     }
     .icon-part:nth-child(5) {
-        transform: rotate(135deg) translateY(0.5em);
+        transform: rotate(135deg) translateY(0.4rem);
     }
     .icon-part:nth-child(6) {
-        transform: rotate(180deg) translateY(0.5em);
+        transform: rotate(180deg) translateY(0.4rem);
     }
     .icon-part:nth-child(7) {
-        transform: rotate(225deg) translateY(0.5em);
+        transform: rotate(225deg) translateY(0.4rem);
     }
     .icon-part:nth-child(8) {
-        transform: rotate(270deg) translateY(0.5em);
+        transform: rotate(270deg) translateY(0.4rem);
     }
     .icon-part:nth-child(9) {
-        transform: rotate(315deg) translateY(0.5em);
+        transform: rotate(315deg) translateY(0.4rem);
     }
     input:checked ~ .slider .icon-part:nth-child(1) {
         transform: scale(1);
-        box-shadow: 0.2em -0.2em 0 0.2em hsl(0, 0%, 100%) inset;
+        box-shadow: 0.2rem -0.2rem 0 0.2rem hsl(0, 0%, 100%) inset;
     }
     input:checked ~ .slider .icon-part ~ .icon-part {
         opacity: 0;
     }
     input:checked ~ .slider .icon-part:nth-child(2) {
-        transform: rotate(45deg) translateY(0.8em);
+        transform: rotate(45deg) translateY(0.8rem);
     }
     input:checked ~ .slider .icon-part:nth-child(3) {
-        transform: rotate(90deg) translateY(0.8em);
+        transform: rotate(90deg) translateY(0.8rem);
     }
     input:checked ~ .slider .icon-part:nth-child(4) {
-        transform: rotate(135deg) translateY(0.8em);
+        transform: rotate(135deg) translateY(0.8rem);
     }
     input:checked ~ .slider .icon-part:nth-child(5) {
-        transform: rotate(180deg) translateY(0.8em);
+        transform: rotate(180deg) translateY(0.8rem);
     }
     input:checked ~ .slider .icon-part:nth-child(6) {
-        transform: rotate(225deg) translateY(0.8em);
+        transform: rotate(225deg) translateY(0.8rem);
     }
     input:checked ~ .slider .icon-part:nth-child(7) {
-        transform: rotate(270deg) translateY(0.8em);
+        transform: rotate(270deg) translateY(0.8rem);
     }
     input:checked ~ .slider .icon-part:nth-child(8) {
-        transform: rotate(315deg) translateY(0.8em);
+        transform: rotate(315deg) translateY(0.8rem);
     }
     input:checked ~ .slider .icon-part:nth-child(9) {
-        transform: rotate(360deg) translateY(0.8em);
+        transform: rotate(360deg) translateY(0.8rem);
     }
 </style>
