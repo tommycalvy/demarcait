@@ -1,6 +1,6 @@
 <slot />
 <main>
-    <form>
+    <form id="search-form" action='?/searchChats' method="post">
         <label for="search">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -17,7 +17,7 @@
             </svg>
             <input id="search" enterkeyhint="search"/>
         </label>
-    <form>
+    </form>
     <div class="chat">
         <div class="circle">
         </div>
@@ -53,32 +53,76 @@
             </p>
         </div>
     </div>
+    <div class="chat">
+        <div class="circle"></div>
+        <div class="description">
+            <h3>
+                Lorem ipsum dolor sit amet
+            </h3>
+            <p>
+                Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."
+            </p>
+        </div>
+    </div>
+    <div class="chat">
+        <div class="circle"></div>
+        <div class="description">
+            <h3>
+                Lorem ipsum dolor sit amet
+            </h3>
+            <p>
+                Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."
+            </p>
+        </div>
+    </div>
+    <div class="chat">
+        <div class="circle"></div>
+        <div class="description">
+            <h3>
+                Lorem ipsum dolor sit amet
+            </h3>
+            <p>
+                Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."
+            </p>
+        </div>
+    </div>
 </main>
 
 <style lang="postcss">
     main {
         margin: 4rem 0;
+        padding: 0.2rem;
     }
     form {
-        display: block;
-        height: 3rem;
+        display: flex;
+        justify-content: center;
         width: 100%;
+        margin: 2rem 0 1rem 0;
+        padding: 0 2rem;
     }
     label {
         display: flex;
+        flex-grow: 1;
+        gap: 1rem;
         background-color: var(--color-input-background);
-        margin: 2rem 1rem;
         border-radius: 1rem;
-        min-width: 4rem;
-        max-height: 2rem;
+        max-width: 20rem;
+        height: 2.2rem;
+        padding: 0 1rem;
     }
     input {
         border: none;
         outline: none;
         background-color: inherit;
+        width: 100%;
+        font-size: 1rem;
     }
     label:focus-within {
         outline: var(--color-primary) solid 0.1rem;
+    }
+    svg {
+        padding: 0.2rem;
+        color: var(--color-input-icon);
     }
     .chat {
         width: 100%;
