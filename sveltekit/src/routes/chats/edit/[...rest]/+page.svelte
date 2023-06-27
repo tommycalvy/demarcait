@@ -27,4 +27,17 @@
     nav a, div {
         width: 2rem;
     }
+
+    a {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 2rem;
+        color: var(--color-primary-icon);
+        text-decoration: none;
+        font-size: 1.2rem;
+    }
+    a:visited, a:active {
+        color: var(--color-primary-icon);
+    }
 </style>

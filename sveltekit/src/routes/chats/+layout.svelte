@@ -133,8 +133,8 @@
     .circle {
         border-radius: 100%;
         background-color: blueviolet;
-        min-width: 4rem;
-        max-height: 4rem;
+        min-width: 3rem;
+        max-height: 3rem;
         margin: 1rem;
     }
     .description {

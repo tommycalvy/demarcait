@@ -1,6 +1,6 @@
 <nav>
     <a href="/chats/edit">
-        Edit
+        <p>Edit</p>
     </a>
     <h2>Chats</h2>
     <a href="/chats/new">
@@ -29,11 +29,20 @@
         left: 0;
         right: 0;
         background-color: var(--color-surface-opaque);
-        backdrop-filter: blur(0.2rem);
+		backdrop-filter: blur(0.4rem);
+		box-shadow: 0 0rem 0.3rem 0.1rem oklch(0% 0 0 / 40%);
     }
-    a svg {
+    a {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         width: 2rem;
         height: 2rem;
-        color: var(--color-primary);
+        color: var(--color-primary-icon);
+        text-decoration: none;
+        font-size: 1.2rem;
+    }
+    a:visited, a:active {
+        color: var(--color-primary-icon);
     }
 </style>
