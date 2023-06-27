@@ -69,8 +69,8 @@
 			</svg>
 		{/if}
 	</a>
-	<a href="/chat" aria-label="Chat">
-		{#if $page.url.pathname === '/chat'}
+	<a href="/chats" aria-label="Chats">
+		{#if $page.url.pathname === '/chats'}
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				viewBox="0 0 24 24"
@@ -135,21 +135,20 @@
 <style lang="postcss">
 	nav {
 		position: fixed;
-		z-index: 50;
 		bottom: 0;
-		width: 100%;
 		left: 0;
+		width: 100%;
 		display: flex;
 		justify-content: space-around;
 		align-items: center;
-		height: 4rem;
-		background-color: var(--color-surface);
-        border-top: 1px var(--color-gap);
+		background-color: var(--color-surface-opaque);
+		backdrop-filter: blur(0.2rem);
+        
 	}
 	nav a {
 		color: var(--color-text);
-		width: 2.2rem;
-		height: 2.2rem;
-		padding: 1rem 1rem;
+		width: 5rem;
+		height: 4rem;
+		padding: 1rem 1.5rem;
 	}
 </style>

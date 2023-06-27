@@ -60,38 +60,59 @@
 	});
 </script>
 
-<h1>Settings</h1>
+<header>
+	<h2>Settings</h2>
+</header>
 
-<h3>Theme Preferences</h3>
-<div class="theme-preference">
-	<select on:change={syncOrSet}>
-		<option value="select" selected={colorScheme.colorMode === 'select'}>Single theme</option>
-		<option value="system" selected={colorScheme.colorMode === 'system'}>Sync with system</option>
-	</select>
-	<label>
-		<span class="light-span">Light</span>
-		<input
+<main>
+
+	<h3>Theme Preferences</h3>
+	<div class="theme-preference">
+		<select on:change={syncOrSet}>
+			<option value="select" selected={colorScheme.colorMode === 'select'}>Single theme</option>
+			<option value="system" selected={colorScheme.colorMode === 'system'}>Sync with system</option>
+		</select>
+		<label>
+			<span class="light-span">Light</span>
+			<input
 			type="checkbox"
 			on:change={setSelectedColor}
 			disabled={disableInput}
 			checked={colorScheme.selectedColor === 'dark'}
-		/>
-		<span class="slider">
-			<span class="icon-part" />
-			<span class="icon-part" />
-			<span class="icon-part" />
-			<span class="icon-part" />
-			<span class="icon-part" />
-			<span class="icon-part" />
-			<span class="icon-part" />
-			<span class="icon-part" />
-			<span class="icon-part" />
-		</span>
-		<span class="dark-span">Dark</span>
-	</label>
-</div>
+			/>
+			<span class="slider">
+				<span class="icon-part" />
+				<span class="icon-part" />
+				<span class="icon-part" />
+				<span class="icon-part" />
+				<span class="icon-part" />
+				<span class="icon-part" />
+				<span class="icon-part" />
+				<span class="icon-part" />
+				<span class="icon-part" />
+			</span>
+			<span class="dark-span">Dark</span>
+		</label>
+	</div>
+</main>
 
 <style lang="postcss">
+	main {
+		margin: 6rem 0 4rem 0;
+	}
+	header {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		width: 100%;
+		min-height: 4rem;
+		background-color: var(--color-surface-opaque);
+        backdrop-filter: blur(0.2rem);
+	}
 	.theme-preference {
 		display: flex;
 		gap: 3rem;
