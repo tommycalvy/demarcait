@@ -137,13 +137,8 @@
 		display: flex;
 		justify-content: space-around;
 		align-items: center;
-		/* Uses backdrop-filter for glass affect
-		background-color: var(--color-surface-opaque);
-		backdrop-filter: blur(1rem);
-		box-shadow: 0 0 0.3rem 0.1rem oklch(0% 0 0 / 40%); 
-		*/
-		background-color: oklch(0% 0 0 / 50%);
-		box-shadow: 0 0 1rem oklch(0% 0 0 / 20%), inset 0 0 300rem oklch(35% 0 0 / 100%);
+		background-color: var(--color-navbar-bg);
+		box-shadow: 0 0 1rem var(--color-box-shadow), inset 0 0 300rem var(--color-navbar-inset);
 		backdrop-filter: blur(0.5rem);
 	}
 	nav a {

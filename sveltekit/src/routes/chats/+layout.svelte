@@ -92,13 +92,15 @@
 	main {
 		margin: 4rem 0;
         padding: 0.1rem 0;
+        
 	}
 	.border {
 		width: 100%;
 		position: sticky;
-		top: 4rem;
+		top: 3.9rem;
 		background-color: var(--color-gap);
 		height: 0.1rem;
+        z-index: -1;
 	}
 	form {
 		display: flex;
@@ -123,7 +125,11 @@
 		background-color: inherit;
 		width: 100%;
 		font-size: 1rem;
+        color: var(--color-text);
 	}
+    input::placeholder {
+        color: var(--color-input-icon);
+    }
 	label:focus-within {
 		outline: var(--color-primary) solid 0.1rem;
 	}
@@ -141,7 +147,7 @@
 	}
 	.circle {
 		border-radius: 100%;
-		background-color: blueviolet;
+		background-color: darkmagenta;
 		min-width: 3rem;
 		max-height: 3rem;
 		margin: 1rem;

@@ -1,36 +1,22 @@
-<script>
+<script lang="ts">
     import { page } from '$app/stores';
+	import ChatNav from "$lib/components/chat-nav.svelte";
+
     let path = $page.url.pathname.split('/chats/edit').at(1);
 </script>
 
-<nav>
+<ChatNav>
     <a href="/chats/{path}">
         <p>Done</p>
     </a>
     <h3>Chats</h3>
     <div></div>
-</nav>
+</ChatNav>
 
 <style lang="postcss">
-    nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        padding: 0 2rem;
-        min-height: 4rem;
-        width: 100%;
-        background-color: oklch(0% 0 0 / 40%);
-		box-shadow: 0 0 1rem oklch(0% 0 0 / 20%), inset 0 0 300rem oklch(0% 0 0 / 70%);
-		backdrop-filter: blur(0.4rem);
-    }
-    nav a, div {
+    a, div {
         width: 2rem;
     }
-
     a {
         display: flex;
         flex-direction: column;

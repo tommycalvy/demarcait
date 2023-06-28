@@ -1,7 +1,5 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import type { WithTarget } from '$lib/types/event-with-target';
-	import { isTheme } from '$lib/types/theme';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
@@ -45,23 +43,10 @@
 			document.cookie = `color_scheme=${JSON.stringify(colorScheme)};path="/";samesite=lax;secure`;
 		}
 	}
-
-	onMount(() => {
-		if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-			colorScheme.preferredColor = 'dark';
-		} else {
-			colorScheme.preferredColor = 'light';
-		}
-		document.cookie = `color_scheme=${JSON.stringify(colorScheme)};path="/";samesite=lax;secure`;
-		window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
-			colorScheme.preferredColor = event.matches ? 'dark' : 'light';
-			document.cookie = `color_scheme=${JSON.stringify(colorScheme)};path="/";samesite=lax;secure`;
-		});
-	});
 </script>
 
 <header>
-	<h2>Settings</h2>
+	<h3>Settings</h3>
 </header>
 
 <main>
