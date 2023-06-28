@@ -5,9 +5,9 @@
 
 <nav>
     <a href="/chats/{path}">
-        Done
+        <p>Done</p>
     </a>
-    <h2>Chats</h2>
+    <h3>Chats</h3>
     <div></div>
 </nav>
 
@@ -20,9 +20,12 @@
         top: 0;
         left: 0;
         right: 0;
-        padding: 0 1rem;
-        background-color: var(--color-surface-opaque);
-        backdrop-filter: blur(0.2rem);
+        padding: 0 2rem;
+        min-height: 4rem;
+        width: 100%;
+        background-color: oklch(0% 0 0 / 40%);
+		box-shadow: 0 0 1rem oklch(0% 0 0 / 20%), inset 0 0 300rem oklch(0% 0 0 / 70%);
+		backdrop-filter: blur(0.4rem);
     }
     nav a, div {
         width: 2rem;

@@ -2,7 +2,7 @@
     <a href="/chats/edit">
         <p>Edit</p>
     </a>
-    <h2>Chats</h2>
+    <h3>Chats</h3>
     <a href="/chats/new">
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -20,7 +20,7 @@
     nav {
         min-height: 4rem;
         width: 100%;
-        padding: 0 1rem;
+        padding: 0 2rem;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -28,9 +28,9 @@
         top: 0;
         left: 0;
         right: 0;
-        background-color: var(--color-surface-opaque);
+        background-color: oklch(0% 0 0 / 40%);
+		box-shadow: 0 0 1rem oklch(0% 0 0 / 20%), inset 0 0 300rem oklch(0% 0 0 / 70%);
 		backdrop-filter: blur(0.4rem);
-		box-shadow: 0 0rem 0.3rem 0.1rem oklch(0% 0 0 / 40%);
     }
     a {
         display: flex;
