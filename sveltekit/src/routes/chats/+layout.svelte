@@ -1,8 +1,8 @@
 <script lang="ts">
-	let y: number;
+    import { chatScrollY } from "$lib/stores/scroll";
 </script>
 
-<svelte:window bind:scrollY={y} />
+<svelte:window bind:scrollY={$chatScrollY} />
 
 <slot />
 <main>
@@ -10,7 +10,7 @@
 		id="search-form"
 		action="?/searchChats"
 		method="post"
-		style="opacity: {1 - Math.min(1, y / 30)}"
+		style="opacity: {1 - Math.min(1, $chatScrollY / 30)}"
 	>
 		<label for="search">
 			<svg
@@ -95,7 +95,6 @@
 <style lang="postcss">
 	main {
 		padding: 0.1rem 0;
-        overflow-y: scroll;
 	}
 	.border {
 		width: 100%;
@@ -135,6 +134,7 @@
 	}
 	label:focus-within {
 		outline: var(--color-primary) solid 0.1rem;
+        background-color: var(--color-input-focused);
 	}
 	svg {
 		padding: 0.4rem;

@@ -1,15 +1,12 @@
 <script lang="ts">
-    let y: number;
+    import { chatScrollY } from "$lib/stores/scroll";
 </script>
-
-<svelte:window bind:scrollY={y} />
 
 <div>
 </div>
-<nav class:border={y > 61}>
+<nav class:border={$chatScrollY > 61}>
     <slot />
 </nav>
-
 
 <style lang="postcss">
     nav {
@@ -23,6 +20,7 @@
         padding: 0 2rem;
         min-height: 4rem;
         width: 100%;
+        margin-right: 0.5rem;
         background-color: var(--color-topnav-bg);
 		box-shadow: inset 0 0 300rem var(--color-topnav-inset);
 		backdrop-filter: blur(0.4rem);
