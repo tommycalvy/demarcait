@@ -1,6 +1,7 @@
 <script lang="ts">
     import { page } from '$app/stores';
 	import ChatNav from "$lib/components/chat-nav.svelte";
+    import ChatList from "$lib/components/chat-list.svelte";
 
     let path = $page.url.pathname.split('/chats/edit').at(1);
 </script>
@@ -12,6 +13,7 @@
     <h3>Chats</h3>
     <div></div>
 </ChatNav>
+<ChatList />
 
 <style lang="postcss">
     a, div {

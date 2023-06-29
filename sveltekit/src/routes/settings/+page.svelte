@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Navbar from "$lib/components/navbar.svelte";
 	import type { WithTarget } from '$lib/types/event-with-target';
 	import type { PageData } from './$types';
 
@@ -79,6 +80,7 @@
 		</label>
 	</div>
 </main>
+<Navbar />
 
 <style lang="postcss">
 	main {

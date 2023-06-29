@@ -1,5 +1,7 @@
 <script lang="ts">
     import ChatNav from "$lib/components/chat-nav.svelte";
+    import ChatList from "$lib/components/chat-list.svelte";
+    import Navbar from "$lib/components/navbar.svelte";
 </script>
 
 <ChatNav>
@@ -19,6 +21,8 @@
         </svg>
     </a>
 </ChatNav>
+<ChatList />
+<Navbar />
 
 <style lang="postcss">
     a {

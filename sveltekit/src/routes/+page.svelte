@@ -1,4 +1,9 @@
+<script lang="ts">
+    import Navbar from '$lib/components/navbar.svelte';
+</script>
+
 <h1>Home</h1>
+<Navbar />
 
 <style lang="postcss">
     h1 {
