@@ -4,6 +4,8 @@
 
 <svelte:window bind:scrollY={y} />
 
+<div>
+</div>
 <nav class:border={y > 61}>
     <slot />
 </nav>
@@ -25,6 +27,11 @@
 		box-shadow: inset 0 0 300rem var(--color-topnav-inset);
 		backdrop-filter: blur(0.4rem);
         border-bottom: 0.1rem solid oklch(100% 0 0 / 0%);
+    }
+    div {
+        width: 100%;
+        background-color: var(--color-surface);
+        min-height: 4rem;
     }
     .border {
         border-bottom: 0.1rem solid var(--color-gap);

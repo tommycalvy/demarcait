@@ -2,6 +2,7 @@
 	import { page } from '$app/stores';
 </script>
 
+<div></div>
 <nav>
 	<a href="/" aria-label="Home">
 		{#if $page.url.pathname === '/'}
@@ -129,6 +130,11 @@
 </nav>
 
 <style lang="postcss">
+	div {
+		width: 100%;
+		min-height: 4rem;
+		background-color: var(--color-surface);
+	}
 	nav {
 		position: fixed;
 		bottom: 0;

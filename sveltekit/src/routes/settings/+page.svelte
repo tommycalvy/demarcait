@@ -50,7 +50,6 @@
 </header>
 
 <main>
-
 	<h3>Theme Preferences</h3>
 	<div class="theme-preference">
 		<select on:change={syncOrSet}>

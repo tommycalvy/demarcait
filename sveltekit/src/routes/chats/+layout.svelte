@@ -1,13 +1,17 @@
 <script lang="ts">
-    let y: number;
-
+	let y: number;
 </script>
 
 <svelte:window bind:scrollY={y} />
 
 <slot />
 <main>
-    <form id="search-form" action="?/searchChats" method="post" style="opacity: {1 - Math.max(0, y / 30)}">
+	<form
+		id="search-form"
+		action="?/searchChats"
+		method="post"
+		style="opacity: {1 - Math.min(1, y / 30)}"
+	>
 		<label for="search">
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
@@ -90,9 +94,8 @@
 
 <style lang="postcss">
 	main {
-		margin: 4rem 0;
-        padding: 0.1rem 0;
-        
+		padding: 0.1rem 0;
+        overflow-y: scroll;
 	}
 	.border {
 		width: 100%;
@@ -100,7 +103,7 @@
 		top: 3.9rem;
 		background-color: var(--color-gap);
 		height: 0.1rem;
-        z-index: -1;
+		z-index: -1;
 	}
 	form {
 		display: flex;
@@ -125,11 +128,11 @@
 		background-color: inherit;
 		width: 100%;
 		font-size: 1rem;
-        color: var(--color-text);
+		color: var(--color-text);
 	}
-    input::placeholder {
-        color: var(--color-input-icon);
-    }
+	input::placeholder {
+		color: var(--color-input-icon);
+	}
 	label:focus-within {
 		outline: var(--color-primary) solid 0.1rem;
 	}
@@ -143,7 +146,7 @@
 		border-bottom: 0.1rem solid var(--color-gap);
 		display: flex;
 		justify-content: space-between;
-        margin: 0 0.2rem;
+		padding-right: 0.6rem;
 	}
 	.circle {
 		border-radius: 100%;
