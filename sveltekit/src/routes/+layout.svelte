@@ -21,13 +21,18 @@
 	});
 </script>
 
-<div>
+<div class="wrapper">
 	<slot />
 	<Navbar />
 </div>
 
 <style lang="postcss">
-	
+
+	@property --color-scrollbar-test {
+		syntax: '<color>';
+		inherits: true;
+		initial-value: var(--color-scrollbar-thumb);
+	}
 
 	@keyframes fadeIn {
 		0% {
@@ -39,35 +44,25 @@
 		}
 	}
 
-	@keyframes fadeOut {
-		0% {
-			--color-scrollbar-test: var(--color-scrollbar-thumb);
-		}
-
-		100% {
-			--color-scrollbar-test: oklch(100% 0 0 / 0%);
-		}
-	}
-
-	div {
+	.wrapper {
 		position: relative;
 		width: 100%;
 		height: 100vh;
 		overflow-y: auto;
 		scrollbar-gutter: stable;
-		animation: fadeOut .5s ease-in-out forwards;
+		animation: fadeIn 1s ease-in-out 0s reverse;
 	}
-	div:hover {
-		animation: fadeIn .5s ease-in-out forwards;
+	.wrapper:hover {
+		animation: fadeIn 1s ease-in-out 0s forwards;
 	}
-	div::-webkit-scrollbar {
+	.wrapper::-webkit-scrollbar {
 		width: 0.5rem;
 	}
-	div::-webkit-scrollbar-track {
+	.wrapper::-webkit-scrollbar-track {
 		background: oklch(100% 0 0 / 0%);
 		margin-block: 4rem;
 	}
-	div::-webkit-scrollbar-thumb {
+	.wrapper::-webkit-scrollbar-thumb {
 		background: var(--color-scrollbar-test);
 		margin-block: 4rem;
 		border-radius: 100vw;
