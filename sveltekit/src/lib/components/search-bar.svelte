@@ -1,5 +1,7 @@
 <script lang="ts">
-	import { chatScrollY } from '$lib/stores/scroll';
+	import { getContext } from 'svelte';
+    import type { Writable } from "svelte/store";
+    const chatScrollY: Writable<number> = getContext('chatScrollY');
 </script>
 
 <form
