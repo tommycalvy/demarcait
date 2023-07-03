@@ -40,6 +40,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"langchain": "^0.0.102",
 		"zod": "^3.21.4"
 	}
 }

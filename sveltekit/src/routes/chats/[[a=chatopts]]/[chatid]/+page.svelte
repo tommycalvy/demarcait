@@ -13,6 +13,4 @@
 
 <ChatMessages {messages} />
 
-
-
 <ChatInput />
