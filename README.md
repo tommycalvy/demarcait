@@ -23,7 +23,7 @@ Securely allow your employees to chat with their internal knowledge base. Self h
 
 - **Understanding Diagrams and Images**: We plan for Cait to be able to understand diagrams and images so that she can include them in her responses.    
 
-- **Open Source Models**: The ability to have any open source large language model or embedding model as Cait's core brain.  
+- **Open Source Models**: The ability to have any open source large language model and embedding model as parts of Cait's core brain.  
 
 
 
