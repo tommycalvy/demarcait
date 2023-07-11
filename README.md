@@ -4,8 +4,10 @@
     <h1 style="font-weight: 600; font-size: 3rem">Knowledge Base Chatbot with Access Controls</h1>
 </div>
     
-
+<br/>
 Securely allow your employees to chat with their internal knowledge base. Self host the entire application in order to have complete control over your documents and data. This repo is a work in progress.
+<br/>
+<br/>
       
 
 ## Upcoming Features
